@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 1 — Música e SFX</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="presentation-container" id="presentation">
+
+        <!-- ======================= AULA 1 ======================= -->
+
+        <!-- Slide 1: Capa AULA 1 -->
+        <section class="slide active">
+            <div class="breadcrumb">● Dia 27/08 &middot; Aula 1</div>
+            <h1 class="title-giant">Música <span class="text-orange">&amp;</span> SFX</h1>
+            <h2 class="subtitle">A importância do áudio na Movimentação e Interface.</h2>
+            <div class="cover-instruction">USE AS SETAS DO TECLADO PARA NAVEGAR</div>
+        </section>
+
+        <!-- Slide 2: A Regra dos 50% -->
+        <section class="slide">
+            <div class="breadcrumb">● Aula 1 &middot; Fundamentos</div>
+            <h1 class="title-large">A Regra dos <span class="text-orange">50%</span></h1>
+            <h2 class="subtitle">O áudio como metade da experiência.</h2>
+
+            <div class="two-cols">
+                <div class="col-left" style="display: flex; justify-content: center; align-items: center;">
+                    <svg width="250" height="250" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"
+                        style="margin-top: 20px;">
+                        <!-- Audição 360 (Dashed Circle) -->
+                        <path d="M 20 160 A 80 80 0 1 1 180 160" fill="none" stroke="var(--wave-color)" stroke-width="3"
+                            stroke-dasharray="8 8" />
+                        <!-- Visão Direcional (Orange Cone) -->
+                        <path d="M 100 160 L 40 40 A 135 135 0 0 1 160 40 Z" fill="rgba(232, 141, 79, 0.2)"
+                            stroke="var(--accent-orange)" stroke-width="3" />
+                        <!-- Center Dot -->
+                        <circle cx="100" cy="160" r="6" fill="#f5f6f8" />
+                    </svg>
+                </div>
+                <div class="col-right" style="padding-top: 20px;">
+                    <ul class="styled-list">
+                        <li>A visão é direcional, mas a audição é <strong>360 graus</strong>.</li>
+                        <li>O áudio <strong>antecipa perigos</strong> antes que você possa vê-los.</li>
+                        <li>Orienta o jogador e <strong>preenche os vazios</strong> deixados pelos gráficos.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 3: O Teste do Mudo -->
+        <section class="slide">
+            <div class="breadcrumb">● Aula 1 &middot; Fundamentos</div>
+            <h1 class="title-large">O Teste do <span class="text-orange">Mudo</span></h1>
+            <h2 class="subtitle">O que acontece quando tiramos o som?</h2>
+
+            <div style="display: flex; gap: 20px; align-items: center; margin-top: 40px;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    style="color: var(--text-grey);">
+                    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                    <line x1="23" y1="9" x2="17" y2="15"></line>
+                    <line x1="17" y1="9" x2="23" y2="15"></line>
+                </svg>
+                <p class="subtitle" style="font-size: 1.1rem;">O que resta da experiência revela o quanto ela dependia
+                    do áudio.</p>
+            </div>
+
+            <div class="cards-container">
+                <div class="card">
+                    <div class="card-header">TERROR</div>
+                    <div class="card-body">Perde o medo.</div>
+                </div>
+                <div class="card">
+                    <div class="card-header">TIRO</div>
+                    <div class="card-body">Perde o impacto.</div>
+                </div>
+                <div class="card">
+                    <div class="card-header">PLATAFORMA</div>
+                    <div class="card-body">Fica "leve" demais.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 4: A Mentira Bem Contada (Movimento) -->
+        <section class="slide">
+            <div class="breadcrumb">● Aula 1 &middot; Fundamentos</div>
+            <h1 class="title-large">O <span class="text-orange">Peso</span> do Movimento</h1>
+            <h2 class="subtitle">Como o som convence o cérebro da gravidade (Módulos 3 a 5).</h2>
+            <div class="two-cols">
+                <div class="col-left"
+                    style="margin-top: 0; min-height: 250px; display: flex; flex-direction: column; justify-content: flex-start; align-items: center;">
+                    <img src="images/__Roll.gif" alt="GIF de Pulo e Aterrissagem"
+                        style="width: 450px; max-width: none; margin-top: -120px;">
+                    <div style="margin-top: 20px; text-align: center;">
+                        <p id="audioLabel"
+                            style="font-size: 1rem; margin-bottom: 5px; color: var(--accent-orange); font-weight: bold; margin-top: 0;">
+                            Esquiva Rápida</p>
+                        <button id="playEsquivaBtn" class="btn-primary">🔊 Tocar Som</button>
+                    </div>
+                </div>
+                <div class="col-right">
+                    <ul class="styled-list">
+                        <li><strong>Passos:</strong> Definem o peso e o material do chão.</li>
+                        <li><strong>Aterrissagem:</strong> Confirma o fim de um pulo. Sem som, o jogador parece
+                            "flutuar".</li>
+                        <li><strong>Colisão:</strong> O som da parede bloqueando seu movimento.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 5: Música de Menu e Exploração -->
+        <section class="slide">
+            <div class="breadcrumb">● Aula 1 &middot; A Música no Jogo</div>
+            <h1 class="title-large">A <span class="text-orange">Vibe</span> do Jogo</h1>
+            <h2 class="subtitle">Como criar um Menu e uma Exploração imersivos.</h2>
+
+            <div class="cards-container">
+                <div class="card">
+                    <div class="card-header">AS ESCALAS</div>
+                    <div class="card-body" style="margin-bottom: 20px;">
+                        <strong>Maior (Feliz) vs Menor (Triste/Tenso)</strong><br>
+                        Definem a emoção instantânea ao abrir o jogo.
+                    </div>
+                    <div class="btn-group" style="margin-top:0;">
+                        <button class="btn-primary" onclick="playSlide5Audio('AUDIOS/Feliz.mp3')">😊</button>
+                        <button class="btn-primary" onclick="playSlide5Audio('AUDIOS/triste.mp3')">💀</button>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">O BPM (TEMPO)</div>
+                    <div class="card-body">
+                        Para Menus e Exploração (Cidades), o <strong>BPM Lento</strong> transmite segurança e paz.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 6: Leitmotif e NPCs -->
+        <section class="slide">
+            <div class="breadcrumb">● Aula 1 &middot; A Música no Jogo</div>
+            <h1 class="title-large">A Identidade: <span class="text-orange">Leitmotif</span></h1>
+            <h2 class="subtitle">Conectando sons aos NPCs e Diálogos (Módulo 8).</h2>
+            <div class="two-cols">
+                <div class="col-left"
+                    style="min-height: 200px; display: flex; flex-direction: column; justify-content: center; align-items: center; background-color: var(--card-bg); border-radius: 12px; border: 1px solid var(--border-color); padding: 25px;">
+                    <p
+                        style="font-weight: bold; color: var(--accent-orange); margin-top: 0; margin-bottom: 20px; font-size: 1.1rem; text-align: center;">
+                        Adivinhe de quem é o tema:</p>
+                    <div style="display: flex; gap: 15px; flex-direction: column; width: 100%;">
+                        <button class="btn-primary"
+                            onclick="playThemeAudio('AUDIOS/Leitmotif/Jaws - Theme song.mp3')">🔊 Tema 1</button>
+                        <button class="btn-primary"
+                            onclick="playThemeAudio('AUDIOS/Leitmotif/MEGALOVANIA - sans.mp3')">🔊 Tema 2</button>
+                        <button class="btn-primary"
+                            onclick="playThemeAudio('AUDIOS/Leitmotif/The Imperial March (Darth Vader\'s Theme).mp3')">🔊
+                            Tema 3</button>
+                    </div>
+                </div>
+                <div class="col-right">
+                    <p class="subtitle" style="font-size:1.1rem; margin-bottom: 20px;">Um Leitmotif é uma assinatura
+                        sonora.</p>
+                    <ul class="styled-list">
+                        <li style="margin-bottom: 20px; align-items: flex-start;">
+                            <div style="display: flex; flex-direction: column; align-items: flex-start;">
+                                <span><strong>O "Blablabla":</strong> Cada NPC pode ter um som de texto (pitch)
+                                    diferente.</span>
+                                <button class="btn-primary"
+                                    style="margin-top: 10px; padding: 5px 15px; font-size: 0.9rem;"
+                                    onclick="playThemeAudio('AUDIOS/Leitmotif/sans voice - Bradly105 (youtube).mp3')">🔊
+                                    Tocar Exemplo</button>
+                            </div>
+                        </li>
+                        <li style="margin-bottom: 20px; align-items: flex-start;">
+                            <div style="display: flex; flex-direction: column; align-items: flex-start;">
+                                <span><strong>Temas de Cidades:</strong> A música que marca o local de descanso (Save
+                                    Point).</span>
+                                <button class="btn-primary"
+                                    style="margin-top: 10px; padding: 5px 15px; font-size: 0.9rem;"
+                                    onclick="playThemeAudio('AUDIOS/Leitmotif/Lavender Town.mp3')">🔊 Tocar
+                                    Exemplo</button>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 7: UI Sounds -->
+        <section class="slide">
+            <div class="breadcrumb">● Aula 1 &middot; SFX de Interface</div>
+            <h1 class="title-large"><span class="text-orange">UI</span> Sounds</h1>
+            <h2 class="subtitle">A voz dos seus Menus (Módulo 7 e 8).</h2>
+            <div class="cards-container">
+                <div class="card">
+                    <div class="card-header">START / SAVE GAME</div>
+                    <div class="card-body">Som agudo e subindo (Pitch positivo). Significa <strong>Avanço e
+                            Sucesso</strong>.</div>
+                    <div style="margin-top: 15px; text-align: center;">
+                        <p id="labelSucesso"
+                            style="font-size: 0.9rem; margin-bottom: 5px; color: var(--accent-orange); font-weight: bold; margin-top: 0;">
+                            Exemplo 1</p>
+                        <button id="btnSucesso" class="btn-primary">🔊 TOCAR</button>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">PAUSE / CANCEL</div>
+                    <div class="card-body">Som grave e descendo. Significa <strong>Retorno e Negação</strong>.</div>
+                    <div style="margin-top: 15px; text-align: center;">
+                        <p id="labelErro"
+                            style="font-size: 0.9rem; margin-bottom: 5px; color: var(--accent-orange); font-weight: bold; margin-top: 0;">
+                            Exemplo 1</p>
+                        <button id="btnErro" class="btn-primary">🔊 TOCAR</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 8: Godot - AudioStreamPlayer -->
+        <section class="slide">
+            <div class="breadcrumb">● Aula 1 &middot; Godot Engine</div>
+            <h1 class="title-large">Integração <span class="text-orange">Godot</span> (Pt 1)</h1>
+            <h2 class="subtitle">Tocando a Música do Menu.</h2>
+
+            <div
+                style="display: flex; justify-content: space-between; align-items: center; margin-top: 30px; width: 100%; gap: 30px;">
+
+                <div style="display: flex; flex-direction: column; gap: 80px; flex: 1;">
+                    <!-- Passo 1 -->
+                    <div style="display: flex; align-items: center; gap: 20px;">
+                        <div style="flex: 0 0 160px;">
+                            <img src="images/Tuto musica menu/parte 1.png" alt="Passo 1"
+                                style="width: 100%; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">
+                        </div>
+                        <ul class="styled-list" style="margin: 0; flex: 1;">
+                            <li><span>Adicione o Nó <strong>AudioStreamPlayer</strong> na cena do Menu.</span></li>
+                        </ul>
+                    </div>
+
+                    <!-- Passo 3 -->
+                    <div style="display: flex; align-items: center; gap: 20px;">
+                        <div style="flex: 0 0 160px;">
+                            <img src="images/Tuto musica menu/parte 3.png" alt="Passo 3"
+                                style="width: 100%; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">
+                        </div>
+                        <ul class="styled-list" style="margin: 0; flex: 1;">
+                            <li><span>Ative o <strong>Autoplay</strong> no Inspector.</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div style="display: flex; align-items: center; justify-content: flex-end; gap: 20px; flex: 1.2;">
+                    <!-- Passo 2 -->
+                    <ul class="styled-list" style="margin: 0; max-width: 280px;">
+                        <li><span>Para a música não parar: no filesystem clique duas vezes no seu áudio, ative o loop e
+                                clique em <strong>Reimport</strong>.</span></li>
+                    </ul>
+                    <div style="flex: 0 0 auto;">
+                        <img src="images/Tuto musica menu/parte 2.png" alt="Passo 2"
+                            style="width: 400px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Slide 9: Godot - Botões -->
+        <section class="slide">
+            <div class="breadcrumb">● Aula 1 &middot; Godot Engine</div>
+            <h1 class="title-large">Sinal <span class="text-orange">pressed()</span></h1>
+            <h2 class="subtitle">Fazendo os botões de UI falarem.</h2>
+
+            <div class="two-cols">
+                <div class="col-left" style="margin-top: 0; display: flex; align-items: center;">
+                    <img src="images/Tuto button audio/1.png" alt="Sinal Conectado"
+                        style="width: 100%; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.4);">
+                </div>
+                <div class="col-right">
+                    <ul class="styled-list">
+                        <li>Selecione o nó <strong>Button</strong>.</li>
+                        <li>Vá em Node > Signals e conecte o <strong>pressed()</strong>.</li>
+                        <li>Dentro do script: <code>$NomeDoAudio.play()</code></li>
+                    </ul>
+
+                    <div class="code-gabarito"
+                        style="margin-top: 30px; background-color: #1e1e1e; border-radius: 10px; border: 1px solid rgba(255,255,255,0.1); overflow: hidden; box-shadow: 0 8px 24px rgba(0,0,0,0.4);">
+                        <div
+                            style="background-color: #2d2d2d; padding: 10px 15px; display: flex; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.05);">
+                            <div style="display: flex; gap: 8px;">
+                                <div style="width: 12px; height: 12px; border-radius: 50%; background-color: #ff5f56;">
+                                </div>
+                                <div style="width: 12px; height: 12px; border-radius: 50%; background-color: #ffbd2e;">
+                                </div>
+                                <div style="width: 12px; height: 12px; border-radius: 50%; background-color: #27c93f;">
+                                </div>
+                            </div>
+                            <div
+                                style="margin-left: 15px; color: #a0a0a0; font-size: 0.85rem; font-family: monospace; font-weight: bold; letter-spacing: 1px;">
+                                GABARITO</div>
+                        </div>
+                        <div style="padding: 20px;">
+                            <pre
+                                style="margin: 0; color: #e6e6e6; font-family: 'Fira Code', Consolas, monospace; font-size: 1.1rem; line-height: 1.6;">
+<span style="color: #c678dd;">func</span> <span style="color: #61afef;">_on_NomeDoBotao_pressed</span>() <span style="color: #56b6c2;">-></span> <span style="color: #e5c07b;">void</span>:
+    <span class="text-orange" style="font-weight: bold; text-shadow: 0 0 10px rgba(232, 141, 79, 0.4);">$NomeDoAudio.play()</span>
+</pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 10: AnimationPlayer (Conceito) -->
+        <section class="slide">
+            <div class="breadcrumb">● Aula 1 &middot; Godot Engine</div>
+            <h1 class="title-large">O Som no <span class="text-orange">Momento Exato</span>.</h1>
+            <h2 class="subtitle">Sincronizando passos com a animação.</h2>
+
+            <div class="two-cols">
+                <div class="col-left" style="margin-top: 0; display: flex; align-items: center; justify-content: center;">
+                    <img src="images/interaction with chão.gif" alt="Personagem interagindo com o chão" style="width: 80%;">
+                </div>
+                <div class="col-right">
+                    <ul class="styled-list">
+                        <li>O personagem está correndo (Sprint), mas o som dos passos está uma bagunça.</li>
+                        <li>Como garantir que o som de "ploft" toque <strong>exatamente</strong> no frame em que a bota
+                            do personagem esmaga o chão?</li>
+                    </ul>
+                    <div
+                        style="margin-top: 20px; background-color: var(--card-bg); padding: 15px; border-radius: 8px; border-left: 4px solid var(--accent-orange);">
+                        <strong style="color: var(--accent-orange);">Nota do Professor:</strong>
+                        <p style="margin-top: 5px; font-size: 0.95rem;">"Nós poderíamos programar isso no script, mas a
+                            Godot tem uma ferramenta visual perfeita para cineastas e animadores: o
+                            <strong>AnimationPlayer</strong>."
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 11: AnimationPlayer (Prática) -->
+        <section class="slide">
+            <div class="breadcrumb">● Aula 1 &middot; Godot Engine</div>
+            <h1 class="title-large">Fazendo a animação <span class="text-orange">"Falar"</span>.</h1>
+            <h2 class="subtitle">Adicionando Trilhas de Áudio.</h2>
+
+            <div class="two-cols">
+                <div class="col-left" style="margin-top: 0; display: flex; flex-direction: column; gap: 15px; align-items: center;">
+                    <img src="images/tuto audioanimationplayer/1.png" alt="Timeline Godot Passo 1" style="width: 50%; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.4);">
+                    <img src="images/tuto audioanimationplayer/2.png" alt="Timeline Godot Passo 2" style="width: 50%; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.4);">
+                </div>
+                <div class="col-right">
+                    <ul class="styled-list">
+                        <li>No <strong>AnimationPlayer</strong>, nós não animamos apenas imagens!</li>
+                        <li>Podemos adicionar uma <strong>Trilha de Áudio</strong> (Audio Playback Track) e colocar os
+                            blocos de som exatamente alinhados com os frames da pisada.</li>
+                    </ul>
+                    <div
+                        style="margin-top: 20px; background-color: var(--card-bg); padding: 15px; border-radius: 8px; border: 1px solid var(--accent-orange);">
+                        <strong style="color: var(--accent-orange);">🌟 A Grande Vantagem:</strong>
+                        <p style="margin-top: 5px;">Se a animação ficar mais rápida (no Sprint, por exemplo), o som
+                            acelera junto automaticamente!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 12: Arsenal -->
+        <section class="slide">
+            <div class="breadcrumb">● Aula 1 &middot; Ferramentas</div>
+            <h1 class="title-large">O Seu <span class="text-orange">Arsenal</span></h1>
+            <h2 class="subtitle">Como gerar sons do zero hoje?</h2>
+
+            <div class="cards-container">
+                <div class="card">
+                    <div class="card-header">MÚSICA: BEEPBOX</div>
+                    <div class="card-body">
+                        Ferramenta visual de navegador. Escolha a escala e desenhe as notas.<br><br>
+                        <a href="https://www.beepbox.co/#9n31s0k0l00e03t2ma7g0fj07r1i0o432T1v1u25f0q0w10v3d08A5F4B0Q000dPc696E2b8638T7v1u26f21842uaq011d07H_-CSQBKRKRJJJJh0IbE0T3v1ud6f10tcq0x11p61d13SU0010508whhaa9hE2c0612T2v1u15f10w4qw02d03w0E0b4h400000000h4g000000014h000000004h400000000p16000000"
+                            target="_blank" class="btn-primary"
+                            style="text-decoration: none; display: inline-block; margin-top: 10px;">🌍 Acessar
+                            BeepBox</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">SFX: JSFXR</div>
+                    <div class="card-body">
+                        Gerador paramétrico 8-bit. Um clique para gerar pulos, cliques e etc.<br><br>
+                        <a href="https://sfxr.me/" target="_blank" class="btn-primary"
+                            style="text-decoration: none; display: inline-block; margin-top: 10px;">🌍 Acessar JSFXR</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 13: O Corte Perfeito -->
+        <section class="slide">
+            <div class="breadcrumb">● Aula 1 &middot; Lapidação</div>
+            <h1 class="title-large">O Corte <span class="text-orange">Perfeito</span></h1>
+            <h2 class="subtitle">Lapidando o SFX para o Game Feel.</h2>
+
+            <div class="two-cols" style="margin-top: 30px;">
+                <div class="col-left" style="display: flex; flex-direction: row; gap: 20px; flex: 1.5; align-items: stretch;">
+                    <!-- Errado -->
+                    <div style="flex: 1; display: flex; flex-direction: column; position: relative; background-color: var(--card-bg); padding: 15px; border-radius: 8px; border: 1px solid #ff4d4d; box-shadow: 0 4px 15px rgba(255, 77, 77, 0.1);">
+                        <div style="position: absolute; top: -15px; left: 15px; background-color: #ff4d4d; color: white; padding: 2px 10px; border-radius: 4px; font-weight: bold; font-size: 0.8rem; font-family: monospace; z-index: 2;">❌ ERRADO</div>
+                        <div style="flex: 1; display: flex; align-items: center; justify-content: center;">
+                            <img src="images/tuto editor audio/Errado.png" alt="Onda sonora com delay" style="width: 100%; height: 250px; object-fit: contain; border-radius: 4px; display: block;">
+                        </div>
+                        <p style="text-align: center; color: #ff4d4d; font-weight: bold; margin-top: 15px; font-size: 1rem;">Delay: O som atrasa!</p>
+                    </div>
+
+                    <!-- Certo -->
+                    <div style="flex: 1; display: flex; flex-direction: column; position: relative; background-color: var(--card-bg); padding: 15px; border-radius: 8px; border: 1px solid #00e676; box-shadow: 0 4px 15px rgba(0, 230, 118, 0.1);">
+                        <div style="position: absolute; top: -15px; left: 15px; background-color: #00e676; color: #0a0e17; padding: 2px 10px; border-radius: 4px; font-weight: bold; font-size: 0.8rem; font-family: monospace; z-index: 2;">✔ CERTO</div>
+                        <div style="flex: 1; display: flex; align-items: center; justify-content: center;">
+                            <img src="images/tuto editor audio/certo.png" alt="Onda sonora sem delay" style="width: 100%; height: 250px; object-fit: contain; border-radius: 4px; display: block;">
+                        </div>
+                        <p style="text-align: center; color: #00e676; font-weight: bold; margin-top: 15px; font-size: 1rem;">No tempo exato!</p>
+                    </div>
+                </div>
+
+                <div class="col-right" style="display: flex; flex-direction: column; justify-content: center; flex: 1;">
+                    <ul class="styled-list">
+                        <li>Silêncio no início do arquivo = <strong>Atraso na tela</strong>.</li>
+                        <li>O som deve reagir no <strong>exato milissegundo</strong> do clique.</li>
+                        <li><strong>Corte a gordura</strong> antes de levar para a Godot!</li>
+                    </ul>
+                    
+                    <div style="margin-top: 30px; background-color: rgba(21, 27, 39, 0.7); border: 1px dashed var(--border-subtle); padding: 20px; border-radius: 12px; display: flex; flex-direction: column; align-items: center; gap: 15px;">
+                        <p style="font-size: 1rem; color: var(--text-grey); font-family: 'Space Mono', monospace; margin: 0; text-align: center;">Ferramenta rápida de corte direto no navegador:</p>
+                        <a href="https://audiomass.co/" target="_blank" class="btn-primary" style="text-decoration: none; font-size: 1.1rem; padding: 10px 30px;">✂️ Abrir AudioMass</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 14: Missão 1 -->
+        <section class="slide">
+            <div class="breadcrumb">● Aula 1 &middot; Laboratório</div>
+            <h1 class="title-large">Quest Log: <span class="text-orange">Missão 1</span></h1>
+            <h2 class="subtitle">A Base do seu Protótipo.</h2>
+
+            <div class="two-cols">
+                <div class="col-left">
+                    <ul class="styled-list">
+                        <li><strong>BeepBox:</strong> Crie um loop de 4 compassos para seu Menu Principal.</li>
+                        <li><strong>jsfxr:</strong> Gere 1 som de UI (clique) e 1 som de Pulo (Mód 4).</li>
+                        <li><strong>Godot:</strong> Implemente na sua Engine usando AudioStreamPlayer!</li>
+                    </ul>
+                </div>
+                <div class="col-right" style="margin-top: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; background-color: var(--card-bg); padding: 30px; border-radius: 12px; border: 2px solid var(--accent-orange); box-shadow: 0 0 20px rgba(232, 141, 79, 0.2);">
+                    <p style="margin: 0 0 15px 0; color: var(--text-grey); font-family: 'Space Mono', monospace; font-size: 1.2rem; letter-spacing: 2px;">TEMPO RESTANTE</p>
+                    <div id="mission-timer-1" style="font-size: 4.5rem; font-weight: bold; color: var(--text-white); font-family: 'Space Mono', monospace; text-shadow: 0 0 15px rgba(255,255,255,0.2); margin-bottom: 25px;">20:00</div>
+                    <div style="display: flex; gap: 15px;">
+                        <button class="btn-primary" onclick="startTimer1(20)" id="btn-start-timer-1" style="min-width: 130px;">▶ Iniciar</button>
+                        <button class="btn-primary" onclick="resetTimer1(20)" id="btn-reset-timer-1" style="background: transparent; border-color: var(--text-grey); color: var(--text-grey);">🔄 Resetar</button>
+                    </div>
+                </div>
+                
+                <script>
+                    let missionInterval1;
+                    let timeRemaining1 = 20 * 60;
+                    
+                    function updateTimerDisplay1() {
+                        const minutes = Math.floor(timeRemaining1 / 60);
+                        const seconds = timeRemaining1 % 60;
+                        document.getElementById('mission-timer-1').innerText = 
+                            String(minutes).padStart(2, '0') + ':' + String(seconds).padStart(2, '0');
+                    }
+
+                    function startTimer1(minutes) {
+                        if (missionInterval1) return;
+                        
+                        if (timeRemaining1 <= 0) {
+                            timeRemaining1 = minutes * 60;
+                            document.getElementById('mission-timer-1').style.color = 'var(--text-white)';
+                        }
+                        
+                        document.getElementById('btn-start-timer-1').innerText = '⏸ Pausar';
+                        document.getElementById('btn-start-timer-1').setAttribute('onclick', 'pauseTimer1()');
+                        
+                        updateTimerDisplay1();
+                        
+                        missionInterval1 = setInterval(() => {
+                            timeRemaining1--;
+                            updateTimerDisplay1();
+                            
+                            if (timeRemaining1 <= 0) {
+                                clearInterval(missionInterval1);
+                                missionInterval1 = null;
+                                document.getElementById('mission-timer-1').style.color = '#ff4d4d'; 
+                                document.getElementById('btn-start-timer-1').innerText = '▶ Iniciar';
+                                document.getElementById('btn-start-timer-1').setAttribute('onclick', 'startTimer1(20)');
+                            }
+                        }, 1000);
+                    }
+                    
+                    function pauseTimer1() {
+                        clearInterval(missionInterval1);
+                        missionInterval1 = null;
+                        document.getElementById('btn-start-timer-1').innerText = '▶ Continuar';
+                        document.getElementById('btn-start-timer-1').setAttribute('onclick', 'startTimer1(20)');
+                    }
+
+                    function resetTimer1(minutes) {
+                        clearInterval(missionInterval1);
+                        missionInterval1 = null;
+                        timeRemaining1 = minutes * 60;
+                        document.getElementById('mission-timer-1').style.color = 'var(--text-white)';
+                        updateTimerDisplay1();
+                        document.getElementById('btn-start-timer-1').innerText = '▶ Iniciar';
+                        document.getElementById('btn-start-timer-1').setAttribute('onclick', 'startTimer1(20)');
+                    }
+                </script>
+            </div>
+        </section>
+
+        <!-- ======================= AULA 2 ======================= -->
+
+        <!-- Slide 12: Capa AULA 2 -->
+        <section class="slide">
+            <div class="breadcrumb">● Dia 17/09 &middot; Aula 2</div>
+            <h1 class="title-giant">Batalhas <span class="text-orange">&amp;</span> Perigos</h1>
+            <h2 class="subtitle">Áudio avançado para Combate e Puzzles (Módulos 9 a 12).</h2>
+            <div class="cover-instruction">USE AS SETAS DO TECLADO PARA NAVEGAR</div>
+        </section>
+
+        <!-- Slide 13: Música de Tensão -->
+        <section class="slide">
+            <div class="breadcrumb">● Aula 2 &middot; Música de Combate</div>
+            <h1 class="title-large">BPM e <span class="text-orange">Adrenalina</span></h1>
+            <h2 class="subtitle">Transitando da calmaria para a tensão.</h2>
+            <div class="two-cols">
+                <div class="col" style="margin-top: 0; display: flex; flex-direction: column; align-items: center; background-color: var(--card-bg); padding: 15px; border-radius: 8px; border: 1px solid var(--border-subtle); box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
+                    <iframe src="https://www.youtube.com/embed/a5EUUB5_HwY" style="width: 100%; aspect-ratio: 16/9; border: none; border-radius: 4px;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <p style="margin-top: 15px; font-weight: bold; color: var(--text-grey); font-family: 'Space Mono', monospace; letter-spacing: 1px;">🔊 BPM LENTO</p>
+                </div>
+                <div class="col" style="margin-top: 0; display: flex; flex-direction: column; align-items: center; background-color: var(--card-bg); padding: 15px; border-radius: 8px; border: 1px solid var(--accent-orange); box-shadow: 0 4px 15px rgba(232, 141, 79, 0.2);">
+                    <iframe src="https://www.youtube.com/embed/7JWQ9KjwPyE" style="width: 100%; aspect-ratio: 16/9; border: none; border-radius: 4px;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <p style="margin-top: 15px; font-weight: bold; color: var(--accent-orange); font-family: 'Space Mono', monospace; letter-spacing: 1px;">🔊 BPM 130+</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 14: Vocais Épicos -->
+        <section class="slide">
+            <div class="breadcrumb">● Aula 2 &middot; Música de Combate</div>
+            <h1 class="title-large">O Uso de <span class="text-orange">Vocais</span></h1>
+            <h2 class="subtitle">Quando a música grita pelo jogador.</h2>
+            <ul class="styled-list">
+                <li><strong>O Problema:</strong> Voz humana "briga" com o foco do jogador em diálogos ou puzzles.</li>
+                <li><strong>A Solução (Corais Épicos):</strong> Reserve vocais para o <strong>Chefe Final</strong>
+                    (Módulos 11 e 12).</li>
+            </ul>
+            <div class="two-cols" style="margin-top: 30px;">
+                <div class="col-left" style="flex: 1; display: flex; flex-direction: column; align-items: center; background-color: var(--card-bg); padding: 15px; border-radius: 8px; border: 1px solid var(--border-subtle); box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
+                    <p style="margin-bottom: 10px; font-weight: bold; color: var(--text-grey); font-family: 'Space Mono', monospace; font-size: 0.9rem; letter-spacing: 1px;">EXEMPLO EM JOGO</p>
+                    <iframe src="https://www.youtube.com/embed/1cE-2nFhKpo" style="width: 100%; aspect-ratio: 16/9; border: none; border-radius: 4px;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="col-right" style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; background-color: var(--card-bg); padding: 15px; border-radius: 8px; border: 1px solid var(--accent-orange); box-shadow: 0 4px 15px rgba(232, 141, 79, 0.2);">
+                    <p style="margin-bottom: 20px; font-weight: bold; color: var(--accent-orange); font-family: 'Space Mono', monospace; font-size: 1rem; text-align: center; letter-spacing: 1px;">CORAL ISOLADO</p>
+                    <button class="btn-primary" onclick="playThemeAudio('AUDIOS/coral.mp3')">🔊 Tocar Coral</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 15: Hit Sounds -->
+        <section class="slide">
+            <div class="breadcrumb">● Aula 2 &middot; SFX de Combate</div>
+            <h1 class="title-large"><span class="text-orange">Hit</span> Sounds</h1>
+            <h2 class="subtitle">O Game Juice essencial das Batalhas (Módulo 12).</h2>
+            <div class="cards-container">
+                <div class="card" style="display: flex; flex-direction: column;">
+                    <div class="card-header">VOCÊ ATACA</div>
+                    <div class="card-body" style="flex: 1;">Ataque Errado (Swoosh) vs Ataque Acertado (Impacto).</div>
+                    <div style="margin-top: 20px; display: flex; gap: 15px; justify-content: center;">
+                        <button class="btn-primary" onclick="playThemeAudio('AUDIOS/slide 17/swoosh.mp3')" style="flex: 1; padding: 10px;">🔊 Swoosh</button>
+                        <button class="btn-primary" onclick="playThemeAudio('AUDIOS/slide 17/impacto.mp3')" style="flex: 1; padding: 10px;">🔊 Impacto</button>
+                    </div>
+                </div>
+                <div class="card" style="display: flex; flex-direction: column;">
+                    <div class="card-header">VOCÊ APANHA</div>
+                    <div class="card-body" style="flex: 1;">Feedback imediato de dor para não precisar olhar a vida (HUD).</div>
+                    <div style="margin-top: 20px; display: flex; justify-content: center;">
+                        <button class="btn-primary" onclick="playThemeAudio('AUDIOS/slide 17/inpacto.wav')" style="padding: 10px 30px;">🔊 Dano Recebido</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Action -->
+            <div style="margin-top: 40px; background-color: rgba(21, 27, 39, 0.7); border: 1px dashed var(--border-subtle); padding: 20px; border-radius: 12px; display: flex; align-items: center; justify-content: space-between;">
+                <p style="font-size: 1.1rem; color: var(--text-grey); font-family: 'Space Mono', monospace; margin: 0;">Biblioteca de Áudios Gratuitos:</p>
+                <a href="https://pixabay.com/pt/" target="_blank" class="btn-primary" style="text-decoration: none; font-size: 1.1rem; padding: 10px 30px;">🌍 Abrir Pixabay</a>
+            </div>
+        </section>
+
+        <!-- Slide 16: Puzzles e Inventário -->
+        <section class="slide">
+            <div class="breadcrumb">● Aula 2 &middot; SFX de Puzzles</div>
+            <h1 class="title-large">Inventário &amp; <span class="text-orange">Recompensas</span></h1>
+            <h2 class="subtitle">O som de resolver problemas (Módulo 9).</h2>
+            <div style="display: flex; flex-direction: column; gap: 15px; margin-top: 30px;">
+                <!-- Item Comum -->
+                <div style="background-color: var(--card-bg); padding: 15px 25px; border-radius: 8px; border-left: 4px solid var(--text-grey); display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+                    <div>
+                        <p style="font-weight: bold; color: var(--text-white); font-size: 1.1rem; margin: 0 0 5px 0;">Item Comum (Poção)</p>
+                        <p style="color: var(--text-grey); margin: 0; font-size: 0.9rem;">Rápido e discreto, apenas para confirmar a ação.</p>
+                    </div>
+                    <button class="btn-primary" onclick="playThemeAudio('AUDIOS/itens/drink potion.mp3')">🔊 Beber Poção</button>
+                </div>
+                
+                <!-- Sorrateiro -->
+                <div style="background-color: var(--card-bg); padding: 15px 25px; border-radius: 8px; border-left: 4px solid #00e5ff; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+                    <div>
+                        <p style="font-weight: bold; color: var(--text-white); font-size: 1.1rem; margin: 0 0 5px 0;">Ação Furtiva</p>
+                        <p style="color: var(--text-grey); margin: 0; font-size: 0.9rem;">Coletando um item sem chamar atenção (Stealth).</p>
+                    </div>
+                    <button class="btn-primary" onclick="playThemeAudio('AUDIOS/itens/pegando sorrateiramente.mp3')">🔊 Som Furtivo</button>
+                </div>
+
+                <!-- Item Chave -->
+                <div style="background-color: var(--card-bg); padding: 15px 25px; border-radius: 8px; border-left: 4px solid var(--accent-orange); display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+                    <div>
+                        <p style="font-weight: bold; color: var(--accent-orange); font-size: 1.1rem; margin: 0 0 5px 0;">Item Chave</p>
+                        <p style="color: var(--text-grey); margin: 0; font-size: 0.9rem;">Som musical marcando uma micro-vitória.</p>
+                    </div>
+                    <button class="btn-primary" onclick="playThemeAudio('AUDIOS/itens/item chave.mp3')" style="border-color: var(--accent-orange); color: var(--accent-orange);">🔊 Item Chave</button>
+                </div>
+
+                <!-- Porta Pesada -->
+                <div style="background-color: var(--card-bg); padding: 15px 25px; border-radius: 8px; border-left: 4px solid #00e676; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+                    <div>
+                        <p style="font-weight: bold; color: #00e676; font-size: 1.1rem; margin: 0 0 5px 0;">Recompensa Final do Puzzle</p>
+                        <p style="color: var(--text-grey); margin: 0; font-size: 0.9rem;">Abrindo uma porta pesada para a próxima área.</p>
+                    </div>
+                    <button class="btn-primary" onclick="playThemeAudio('AUDIOS/itens/open door.mp3')" style="border-color: #00e676; color: #00e676;">🔊 Abrir Porta</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 17: Perigos Contínuos -->
+        <section class="slide">
+            <div class="breadcrumb">● Aula 2 &middot; Status e Hazards</div>
+            <h1 class="title-large"><span class="text-orange">Status</span> e Perigos</h1>
+            <h2 class="subtitle">O desespero auditivo (Módulo 10).</h2>
+            <div style="display: flex; flex-direction: column; gap: 15px; margin-top: 30px;">
+                <!-- Gás Vazando -->
+                <div style="background-color: var(--card-bg); padding: 15px 25px; border-radius: 8px; border-left: 4px solid #ff4d4d; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+                    <div>
+                        <p style="font-weight: bold; color: #ff4d4d; font-size: 1.1rem; margin: 0 0 5px 0;">Vazamento de Gás (Emergência)</p>
+                        <p style="color: var(--text-grey); margin: 0; font-size: 0.9rem;">Perigo iminente: Saia rápido ou você vai morrer.</p>
+                    </div>
+                    <button class="btn-primary" onclick="playThemeAudio('AUDIOS/Efeitos/Gás vazando.mp3')" style="border-color: #ff4d4d; color: #ff4d4d;">🔊 Tocar</button>
+                </div>
+                
+                <!-- Máscara de Gás -->
+                <div style="background-color: var(--card-bg); padding: 15px 25px; border-radius: 8px; border-left: 4px solid #ffaa00; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+                    <div>
+                        <p style="font-weight: bold; color: #ffaa00; font-size: 1.1rem; margin: 0 0 5px 0;">Máscara de Gás (Atenção)</p>
+                        <p style="color: var(--text-grey); margin: 0; font-size: 0.9rem;">Clima tenso: Lugar perigoso, ande com cautela.</p>
+                    </div>
+                    <button class="btn-primary" onclick="playThemeAudio('AUDIOS/Efeitos/Respirando com mascará de gás.mp3')" style="border-color: #ffaa00; color: #ffaa00;">🔊 Tocar</button>
+                </div>
+
+                <!-- Som de Fogo -->
+                <div style="background-color: var(--card-bg); padding: 15px 25px; border-radius: 8px; border-left: 4px solid #ff3300; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+                    <div>
+                        <p style="font-weight: bold; color: #ff3300; font-size: 1.1rem; margin: 0 0 5px 0;">Incêndio / Fogo</p>
+                        <p style="color: var(--text-grey); margin: 0; font-size: 0.9rem;">Mesma regra do gás: Saia imediatamente para sobreviver.</p>
+                    </div>
+                    <button class="btn-primary" onclick="playThemeAudio('AUDIOS/Efeitos/Som de fogo.mp3')" style="border-color: #ff3300; color: #ff3300;">🔊 Tocar</button>
+                </div>
+
+                <!-- Impacto Espinhos -->
+                <div style="background-color: var(--card-bg); padding: 15px 25px; border-radius: 8px; border-left: 4px solid #cc00ff; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+                    <div>
+                        <p style="font-weight: bold; color: #cc00ff; font-size: 1.1rem; margin: 0 0 5px 0;">Dano Instantâneo (Espinhos)</p>
+                        <p style="color: var(--text-grey); margin: 0; font-size: 0.9rem;">Já era: Você tomou o hit e foi punido.</p>
+                    </div>
+                    <button class="btn-primary" onclick="playThemeAudio('AUDIOS/Efeitos/impacto espinhos.mp3')" style="border-color: #cc00ff; color: #cc00ff;">🔊 Tocar</button>
+                </div>
+
+                <!-- Retro Hit -->
+                <div style="background-color: var(--card-bg); padding: 15px 25px; border-radius: 8px; border-left: 4px solid #00e5ff; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+                    <div>
+                        <p style="font-weight: bold; color: #00e5ff; font-size: 1.1rem; margin: 0 0 5px 0;">Dano Retrô (Estilizado)</p>
+                        <p style="color: var(--text-grey); margin: 0; font-size: 0.9rem;">Como o timbre muda a década e estilo do jogo.</p>
+                    </div>
+                    <button class="btn-primary" onclick="playThemeAudio('AUDIOS/Efeitos/retro hit.mp3')" style="border-color: #00e5ff; color: #00e5ff;">🔊 Tocar</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 18: Mixagem -->
+        <section class="slide">
+            <div class="breadcrumb">● Aula 2 &middot; Mixagem</div>
+            <h1 class="title-large"><span class="text-orange">Volume</span> Management</h1>
+            <h2 class="subtitle">O jogo está cheio de sons! Como evitar a confusão?</h2>
+
+            <div class="two-cols" style="margin-top: 20px;">
+                <div class="col-left" style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; background-color: var(--card-bg); padding: 15px; border-radius: 8px; border: 1px solid var(--border-subtle); box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
+                    <p style="margin-bottom: 15px; font-weight: bold; color: var(--text-grey); font-family: 'Space Mono', monospace; font-size: 1rem;">MÉTODO FÁCIL</p>
+                    <div style="flex: 1; display: flex; align-items: center; justify-content: center; width: 100%;">
+                        <img src="images/tuto mizagem godot/facil.png" alt="Método fácil de mixagem no Godot" style="max-width: 100%; height: 230px; object-fit: contain; border-radius: 4px;">
+                    </div>
+                </div>
+                <div class="col-right" style="flex: 2; display: flex; flex-direction: column; align-items: center; justify-content: center; background-color: var(--card-bg); padding: 15px; border-radius: 8px; border: 1px solid var(--accent-orange); box-shadow: 0 4px 15px rgba(232, 141, 79, 0.2);">
+                    <p style="margin-bottom: 15px; font-weight: bold; color: var(--accent-orange); font-family: 'Space Mono', monospace; font-size: 1rem;">MÉTODO PROFISSIONAL</p>
+                    <div style="flex: 1; display: flex; align-items: center; justify-content: center; width: 100%;">
+                        <img src="images/tuto mizagem godot/profissional.png" alt="Método profissional de mixagem no Godot" style="max-width: 100%; height: 230px; object-fit: contain; border-radius: 4px;">
+                    </div>
+                </div>
+            </div>
+
+            <div class="cards-container" style="margin-top: 20px;">
+                <div class="card" style="border-color: var(--accent-orange); text-align: center; width: 100%; margin: 0;">
+                    <div class="card-header" style="justify-content: center;">REGRA DE OURO DO COMBATE</div>
+                    <div class="card-body" style="font-family: 'Space Mono', monospace; display: flex; justify-content: center; align-items: center;">
+                        SFX de Gameplay e Dano <span style="color: var(--accent-orange); font-weight: bold; margin: 0 10px;">></span> Passos <span style="color: var(--accent-orange); font-weight: bold; margin: 0 10px;">></span> Música.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 19: Nomenclatura -->
+        <section class="slide">
+            <div class="breadcrumb">● Aula 2 &middot; Organização</div>
+            <h1 class="title-large">A <span class="text-orange">Bíblia</span> dos Nomes</h1>
+            <h2 class="subtitle">Seu projeto agora tem 50 áudios.</h2>
+            <div class="two-cols" style="margin-top: 20px;">
+                <!-- Ruim -->
+                <div class="col" style="margin-top: 0; background-color: var(--card-bg); padding: 20px; border-radius: 8px; border: 1px solid #ff4d4d; box-shadow: 0 4px 15px rgba(255, 77, 77, 0.1);">
+                    <p style="margin-bottom: 15px; font-weight: bold; color: #ff4d4d; font-family: 'Space Mono', monospace; font-size: 1.1rem; text-align: center;">❌ COMO NÃO FAZER</p>
+                    <ul class="styled-list" style="color: var(--text-grey); font-family: monospace; font-size: 1rem;">
+                        <li style="margin-bottom: 10px;">espada1.wav</li>
+                        <li style="margin-bottom: 10px;">espada2_final.wav</li>
+                        <li style="margin-bottom: 10px;">ai.wav</li>
+                        <li style="margin-bottom: 10px;">musica_fundo.mp3</li>
+                    </ul>
+                </div>
+                
+                <!-- Bom -->
+                <div class="col" style="margin-top: 0; background-color: var(--card-bg); padding: 20px; border-radius: 8px; border: 1px solid #00e676; box-shadow: 0 4px 15px rgba(0, 230, 118, 0.1);">
+                    <p style="margin-bottom: 15px; font-weight: bold; color: #00e676; font-family: 'Space Mono', monospace; font-size: 1.1rem; text-align: center;">✔ PADRÃO PROFISSIONAL</p>
+                    <ul class="styled-list" style="color: var(--text-white); font-family: monospace; font-size: 1rem;">
+                        <li style="margin-bottom: 10px;">sfx_atk_sword_01.wav</li>
+                        <li style="margin-bottom: 10px;">sfx_atk_sword_02.wav</li>
+                        <li style="margin-bottom: 10px;">sfx_dmg_player.wav</li>
+                        <li style="margin-bottom: 10px;">bgm_combat_theme.mp3</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div style="margin-top: 40px; display: flex; justify-content: center;">
+                <div style="background-color: rgba(21, 27, 39, 0.7); border: 1px dashed var(--border-subtle); padding: 20px 40px; border-radius: 12px; display: flex; align-items: center; gap: 30px;">
+                    <p style="font-size: 1.1rem; color: var(--text-grey); font-family: 'Space Mono', monospace; margin: 0;">Acesse a Biblioteca da Aula no Drive:</p>
+                    <a href="https://drive.google.com/drive/folders/1sHsmamEVJVeqNgbU-NAwp_pHtppjE_Ut?usp=drive_link" target="_blank" class="btn-primary" style="text-decoration: none; font-size: 1.1rem; border-color: var(--accent-orange); color: var(--accent-orange);">📁 Abrir Google Drive</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 20: Godot 2 - Hitboxes -->
+        <section class="slide">
+            <div class="breadcrumb">● Aula 2 &middot; Godot Avançado</div>
+            <h1 class="title-large">Integração <span class="text-orange">Godot</span> (Pt 2)</h1>
+            <h2 class="subtitle">Som na colisão da Hitbox (Módulo 12).</h2>
+
+            <div class="two-cols" style="margin-top: 20px;">
+                <!-- ANTES -->
+                <div class="col" style="background-color: #1e1e1e; padding: 15px; border-radius: 8px; border: 1px solid #ff4d4d; box-shadow: 0 4px 15px rgba(255, 77, 77, 0.1); overflow-x: auto;">
+                    <p style="margin-top: 0; margin-bottom: 10px; font-weight: bold; color: #ff4d4d; font-family: 'Space Mono', monospace; font-size: 0.9rem; text-align: center;">❌ ANTES (SEM SOM)</p>
+                    <pre style="margin: 0; color: #d4d4d4; font-family: 'Consolas', 'Courier New', monospace; font-size: 0.75rem; line-height: 1.4;">
+<span style="color: #569cd6;">func</span> <span style="color: #dcdcaa;">_on_area_2d_area_entered</span>(area: Area2D) -> <span style="color: #4ec9b0;">void</span>:
+    <span style="color: #c586c0;">if</span> area.name == <span style="color: #ce9178;">"hurt_box_area"</span>:
+        <span style="color: #569cd6;">var</span> enemy = area.<span style="color: #dcdcaa;">get_parent</span>()
+        <span style="color: #c586c0;">if</span> enemy <span style="color: #c586c0;">and</span> enemy.<span style="color: #dcdcaa;">has_method</span>(<span style="color: #ce9178;">"take_damage"</span>):
+            
+            <span style="color: #569cd6;">var</span> final_damage: <span style="color: #4ec9b0;">int</span> = <span style="color: #b5cea8;">0</span>
+            
+            <span style="color: #c586c0;">if</span> hit_simple.disabled == <span style="color: #569cd6;">false</span>:
+                final_damage = <span style="color: #b5cea8;">12</span> <span style="color: #6a9955;"># Dano do Martelo</span>
+                <span style="color: #dcdcaa;">print</span>(<span style="color: #ce9178;">"Ataque detectado!"</span>)
+                
+            <span style="color: #c586c0;">elif</span> hit_combo.disabled == <span style="color: #569cd6;">false</span>:
+                final_damage = <span style="color: #b5cea8;">25</span> 
+                <span style="color: #dcdcaa;">print</span>(<span style="color: #ce9178;">"Ataque do combo detectado!"</span>)
+                
+            enemy.<span style="color: #dcdcaa;">take_damage</span>(final_damage)
+                    </pre>
+                </div>
+                
+                <!-- DEPOIS -->
+                <div class="col" style="background-color: #1e1e1e; padding: 15px; border-radius: 8px; border: 1px solid #00e676; box-shadow: 0 4px 15px rgba(0, 230, 118, 0.1); overflow-x: auto;">
+                    <p style="margin-top: 0; margin-bottom: 10px; font-weight: bold; color: #00e676; font-family: 'Space Mono', monospace; font-size: 0.9rem; text-align: center;">✔ DEPOIS (COM SOM)</p>
+                    <pre style="margin: 0; color: #d4d4d4; font-family: 'Consolas', 'Courier New', monospace; font-size: 0.75rem; line-height: 1.4;">
+<span style="color: #569cd6;">func</span> <span style="color: #dcdcaa;">_on_area_2d_area_entered</span>(area: Area2D) -> <span style="color: #4ec9b0;">void</span>:
+    <span style="color: #c586c0;">if</span> area.name == <span style="color: #ce9178;">"hurt_box_area"</span>:
+        <span style="color: #4fc1ff;">$Area2D/hit</span>.<span style="color: #dcdcaa;">play</span>() <span style="color: #6a9955;"># genérico</span>
+        <span style="color: #569cd6;">var</span> enemy = area.<span style="color: #dcdcaa;">get_parent</span>()
+        <span style="color: #c586c0;">if</span> enemy <span style="color: #c586c0;">and</span> enemy.<span style="color: #dcdcaa;">has_method</span>(<span style="color: #ce9178;">"take_damage"</span>):
+            
+            <span style="color: #569cd6;">var</span> final_damage: <span style="color: #4ec9b0;">int</span> = <span style="color: #b5cea8;">0</span>
+            
+            <span style="color: #c586c0;">if</span> hit_simple.disabled == <span style="color: #569cd6;">false</span>:
+                <span style="color: #4fc1ff;">$Area2D/hit_simples</span>.<span style="color: #dcdcaa;">play</span>() <span style="color: #6a9955;"># exato</span>
+                final_damage = <span style="color: #b5cea8;">12</span> <span style="color: #6a9955;"># Martelo</span>
+                <span style="color: #dcdcaa;">print</span>(<span style="color: #ce9178;">"Ataque detectado!"</span>)
+                
+            <span style="color: #c586c0;">elif</span> hit_combo.disabled == <span style="color: #569cd6;">false</span>:
+                <span style="color: #4fc1ff;">$Area2D/hit_combo</span>.<span style="color: #dcdcaa;">play</span>() <span style="color: #6a9955;"># exato</span>
+                final_damage = <span style="color: #b5cea8;">25</span> 
+                <span style="color: #dcdcaa;">print</span>(<span style="color: #ce9178;">"Ataque do combo!"</span>)
+                
+            enemy.<span style="color: #dcdcaa;">take_damage</span>(final_damage)
+                    </pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 21: Godot 2 - Pitch -->
+        <section class="slide">
+            <div class="breadcrumb">● Aula 2 &middot; Godot Avançado</div>
+            <h1 class="title-large">Dica Bônus: <span class="text-orange">Pitch Randomizer</span></h1>
+            <h2 class="subtitle">Evitando a fadiga auditiva nos ataques.</h2>
+
+            <div class="cards-container">
+                <div class="card">
+                    <div class="card-header">O TRUQUE</div>
+                    <div class="card-body">
+                        Para o som da espada não soar idêntico nos 1000 golpes dados, altere o "tom" (Pitch) levemente
+                        via código.
+                        <br><br>
+                        <code style="color: var(--accent-orange);">
+                        $Audio.pitch_scale = randf_range(0.9, 1.1)
+                        </code>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 22: Missão 2 -->
+        <section class="slide">
+            <div class="breadcrumb">● Aula 2 &middot; Laboratório</div>
+            <h1 class="title-large">Quest Log: <span class="text-orange">Missão Final</span></h1>
+            <h2 class="subtitle">Trazendo o combate à vida.</h2>
+
+            <div class="two-cols">
+                <div class="col-left">
+                    <ul class="styled-list">
+                        <li><strong>BeepBox:</strong> Crie a sua música tensa de Batalha de Chefe (BPM alto).</li>
+                        <li><strong>jsfxr:</strong> Gere sons de Ataque, Receber Dano, e Coletar Item.</li>
+                        <li><strong>Godot:</strong> Integre os sons no seu código de Batalha (Módulo 12).</li>
+                    </ul>
+                </div>
+                <div class="col-right" style="margin-top: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; background-color: var(--card-bg); padding: 30px; border-radius: 12px; border: 2px solid var(--accent-orange); box-shadow: 0 0 20px rgba(232, 141, 79, 0.2);">
+                    <p style="margin: 0 0 15px 0; color: var(--text-grey); font-family: 'Space Mono', monospace; font-size: 1.2rem; letter-spacing: 2px;">TEMPO RESTANTE</p>
+                    <div id="mission-timer" style="font-size: 4.5rem; font-weight: bold; color: var(--text-white); font-family: 'Space Mono', monospace; text-shadow: 0 0 15px rgba(255,255,255,0.2); margin-bottom: 25px;">20:00</div>
+                    <div style="display: flex; gap: 15px;">
+                        <button class="btn-primary" onclick="startTimer(20)" id="btn-start-timer" style="min-width: 130px;">▶ Iniciar</button>
+                        <button class="btn-primary" onclick="resetTimer(20)" id="btn-reset-timer" style="background: transparent; border-color: var(--text-grey); color: var(--text-grey);">🔄 Resetar</button>
+                    </div>
+                </div>
+                
+                <script>
+                    let missionInterval;
+                    let timeRemaining = 20 * 60;
+                    
+                    function updateTimerDisplay() {
+                        const minutes = Math.floor(timeRemaining / 60);
+                        const seconds = timeRemaining % 60;
+                        document.getElementById('mission-timer').innerText = 
+                            String(minutes).padStart(2, '0') + ':' + String(seconds).padStart(2, '0');
+                    }
+
+                    function startTimer(minutes) {
+                        if (missionInterval) return;
+                        
+                        if (timeRemaining <= 0) {
+                            timeRemaining = minutes * 60;
+                            document.getElementById('mission-timer').style.color = 'var(--text-white)';
+                        }
+                        
+                        document.getElementById('btn-start-timer').innerText = '⏸ Pausar';
+                        document.getElementById('btn-start-timer').setAttribute('onclick', 'pauseTimer()');
+                        
+                        updateTimerDisplay();
+                        
+                        missionInterval = setInterval(() => {
+                            timeRemaining--;
+                            updateTimerDisplay();
+                            
+                            if (timeRemaining <= 0) {
+                                clearInterval(missionInterval);
+                                missionInterval = null;
+                                document.getElementById('mission-timer').style.color = '#ff4d4d'; // Fica vermelho ao zerar
+                                document.getElementById('btn-start-timer').innerText = '▶ Iniciar';
+                                document.getElementById('btn-start-timer').setAttribute('onclick', 'startTimer(20)');
+                            }
+                        }, 1000);
+                    }
+                    
+                    function pauseTimer() {
+                        clearInterval(missionInterval);
+                        missionInterval = null;
+                        document.getElementById('btn-start-timer').innerText = '▶ Continuar';
+                        document.getElementById('btn-start-timer').setAttribute('onclick', 'startTimer(20)');
+                    }
+
+                    function resetTimer(minutes) {
+                        clearInterval(missionInterval);
+                        missionInterval = null;
+                        timeRemaining = minutes * 60;
+                        document.getElementById('mission-timer').style.color = 'var(--text-white)';
+                        updateTimerDisplay();
+                        document.getElementById('btn-start-timer').innerText = '▶ Iniciar';
+                        document.getElementById('btn-start-timer').setAttribute('onclick', 'startTimer(20)');
+                    }
+                </script>
+            </div>
+        </section>
+
+        <!-- Slide 23: Encerramento -->
+        <section class="slide">
+            <div class="breadcrumb">● Módulo 1 &middot; Conclusão</div>
+            <h1 class="title-large">Level <span class="text-orange">Complete!</span></h1>
+            <h2 class="subtitle">Seu jogo agora fala.</h2>
+
+            <div class="cards-container" style="max-width: 600px;">
+                <div class="card" style="border-color: var(--accent-orange);">
+                    <div class="card-header">O ÁUDIO MUDA TUDO</div>
+                    <div class="card-body">
+                        Parabéns! O seu protótipo silencioso acaba de ganhar peso, emoção e resposta. Continuem
+                        aplicando isso em todos os projetos futuros!
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Footer Padrão (Fixo) -->
+    <footer class="footer">
+        <div class="footer-left" style="overflow: visible; padding: 0;">
+            <img src="images/Logo scorpion Bits.png" alt="Scorpion Bits Logo" class="footer-global-logo">
+        </div>
+        <div class="footer-right">
+            <div class="nav-container">
+                <button class="nav-btn" id="prevBtn" disabled>&lt; Anterior</button>
+                <div class="nav-counter" id="slideCounter">01 / 23</div>
+                <button class="nav-btn" id="nextBtn">Próximo &gt;</button>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
